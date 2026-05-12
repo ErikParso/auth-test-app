@@ -11,14 +11,13 @@ import jwksClient from "jwks-rsa";
 import { AppDataSource } from "./data-source.js";
 import { Record } from "./entity/Record.js";
 
-const clientId =
-	"92137605857-druh6dg38gdfb88rjgl953slegehasuc.apps.googleusercontent.com";
+const clientId = process.env.CLIENT_ID!;
 
 const app = express();
 
 app.use(
 	cors({
-		origin: "https://auth-test-app-rubk.onrender.com",
+		origin: process.env.CORS_ORIGIN,
 	})
 );
 

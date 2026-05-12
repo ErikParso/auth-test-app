@@ -1,7 +1,7 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 
-const api = 'https://auth-test-app-backend.onrender.com/';
+const api = import.meta.env.VITE_API_URL;
 
 type RecordItem = {
 	id: number;
