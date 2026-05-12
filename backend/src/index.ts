@@ -9,6 +9,8 @@ import jwt from "jsonwebtoken";
 import jwksClient from "jwks-rsa";
 import sqlite3 from "sqlite3";
 
+const clientId = '92137605857-druh6dg38gdfb88rjgl953slegehasuc.apps.googleusercontent.com';
+
 const app = express();
 
 app.use(
@@ -61,11 +63,7 @@ function authMiddleware(
 		getKey,
 		{
 			algorithms: ["RS256"],
-
-			// IMPORTANT:
-			// replace with your real Google client ID
-			audience:
-				"YOUR_GOOGLE_CLIENT_ID",
+			audience: clientId,
 		},
 		(err, decoded) => {
 			if (err || !decoded) {
@@ -73,9 +71,7 @@ function authMiddleware(
 					error: "Invalid token",
 				});
 			}
-
 			req.user = decoded;
-
 			next();
 		}
 	);
