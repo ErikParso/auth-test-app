@@ -99,10 +99,12 @@ app.put(
 	}
 );
 
+const PORT = process.env.PORT || 3001;
+
 AppDataSource.initialize().then(() => {
-	app.listen(3001, () => {
+	app.listen(PORT, () => {
 		console.log(
-			"Backend running on http://localhost:3001"
+			"Backend running on http://localhost:" + PORT
 		);
 	});
 });
