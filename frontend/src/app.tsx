@@ -1,6 +1,8 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 
+const api = 'https://auth-test-app-backend.vercel.app/';
+
 type RecordItem = {
 	id: number;
 	text: string;
@@ -12,7 +14,7 @@ export function App() {
 	const [text, setText] = useState<string>("");
 
 	async function loadRecords(jwt: string) {
-		const res = await fetch("http://localhost:3001/records", {
+		const res = await fetch(api + "records", {
 			headers: {
 				Authorization: `Bearer ${jwt}`,
 			},
@@ -23,7 +25,7 @@ export function App() {
 	}
 
 	async function addRecord() {
-		await fetch("http://localhost:3001/records", {
+		await fetch(api + "records", {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
