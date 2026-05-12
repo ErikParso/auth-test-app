@@ -1,7 +1,7 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 
-const api = 'https://auth-test-app-backend.vercel.app/';
+const api = 'https://auth-test-app-backend.onrender.com/';
 
 type RecordItem = {
 	id: number;
